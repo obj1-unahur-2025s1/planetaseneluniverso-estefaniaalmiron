@@ -1,9 +1,38 @@
-import example.pepita
+import planetas.*
 
-describe "group of tests for pepita" {
+describe "group of tests for planetas" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+  const pedro = new Persona(edad = 16, monedas = 0)
+  const maria = new Persona(edad= 20, monedas = 20)
+  const marcos = new Persona(edad= 35, monedas= 300)
+  const angela = new Persona(edad=60, monedas = 150)
+
+  const muralla1 = new Muralla(longitud= 5)
+  const muralla2 = new Muralla(longitud= 6)
+  const bellasArtes = new Museo(superficie= 10, indiceImportancia= 4)
+
+  const terra = new Planeta ()
+
+    method initialize() {
+    terra.agregar(pedro)
+    terra.agregar(maria)
+    terra.agregar(marcos)
+    terra.agregar(angela)
+
+    terra.registrar(muralla1)
+    terra.registrar(muralla2)
+    terra.registrar(bellasArtes)
+   
+  }
+
+  test "En terra, la delegacion esta formada por maria, marcos y angela" {
+    assert.that(terra.delegacionDiplomatica().contains(maria))
+    assert.notThat(terra.delegacionDiplomatica().contains(pedro))
+  }
+
+  test "destacado" {
+    assert.that(terra.elQueMasRecursosTiene() == marcos)
+
   }
 
 }
