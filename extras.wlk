@@ -292,3 +292,5 @@ class Saqueo inherits Mision {
 object monedasDeterminadas {
   var property valor = 0
 }
+
+/////
